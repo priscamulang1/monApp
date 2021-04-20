@@ -15,20 +15,27 @@
                         </thead>
                         <tbody>
                             @foreach($materiels as $p)
-
                                 <tr>
                                     <td> {{ $p->Designation }} </td>
                                     <td> {{ $p->Description }} </td>
                                     <td>
-                                        @if($p->etat=='1')
+                                        @if($p->Etat=='1')
                                             <label class="badge badge-gradient-info">Bon etat</label>
-                                        @elseif($p->etat=='2')
+                                        @elseif($p->Etat=='2')
                                             <label class="badge badge-gradient-warning">Un peu degrade</label>
                                         @else
-                                            <label class="badge badge-gradient-danger">A Declasse</label>
+                                            <label class="badge badge-gradient-danger">Defectueux</label>
                                         @endif
                                     </td>
-
+                                    <td>
+                                        @if($p->Etat=='1')
+                                            <a href="{{ url('/matUD/'.$p->id) }}" class="btn btn-sm btn-info">Un peu Degrader?</a>
+                                        @elseif($p->Etat=='2')
+                                            <a href="{{ url('/matD/'.$p->id) }}" class="btn btn-sm btn-warning">Degrader?</a>
+                                        @else
+                                            <a href="{{ url('/matS/'.$p->id) }}" class="btn btn-sm btn-danger">Declasser?</a>
+                                        @endif
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
