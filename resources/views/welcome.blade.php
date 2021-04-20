@@ -53,7 +53,27 @@
         <!-- partial -->
         <div class="main-panel">
             <div class="content-wrapper">
-                @if()
+                <div class="row" id="proBanner">
+                    <div class="col-12">
+                <span class="d-flex align-items-center purchase-popup">
+                  <a href="{{ url('/create') }}" target="_blank" class="btn download-button purchase-button ml-auto">Nouveau departement</a>
+
+                </span>
+                    </div>
+                </div>
+                @if($layout=='index')
+                    <div class="row">
+                        @include('departement')
+                    </div>
+                @elseif($layout=='create')
+                    <div class="row">
+                        @include('departementCreate')
+                    </div>
+                    <hr>
+                    <div class="row">
+                        @include('departement')
+                    </div>
+                @endif
             </div>
             <!-- content-wrapper ends -->
             <!-- partial:partials/_footer.html -->

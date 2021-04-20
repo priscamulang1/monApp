@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Departement;
+use App\Models\Materiel;
 use Illuminate\Http\Request;
 
 class DepartementController extends Controller
@@ -13,7 +15,8 @@ class DepartementController extends Controller
      */
     public function index()
     {
-        //
+        $departements=Departement::all();
+        return view('welcome',['departements'=>$departements,'layout'=>'index']);
     }
 
     /**
@@ -23,7 +26,8 @@ class DepartementController extends Controller
      */
     public function create()
     {
-        //
+        $departements=Departement::all();
+        return view('welcome',['departements'=>$departements,'layout'=>'create']);
     }
 
     /**
@@ -34,7 +38,13 @@ class DepartementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $departement=new Departement();
+        $departement->designation=$request->input('designation');
+        $departement->description=$request->input('description');
+        $departement->etat=1;
+
+        $departement->save();
+        return redirect('/create');
     }
 
     /**
@@ -45,7 +55,9 @@ class DepartementController extends Controller
      */
     public function show($id)
     {
-        //
+        $departement=Departement::find($id);
+        $materiels= Materiel::all();
+        return view('Departement',['departement'=>$departement,'materiels'=>$materiels,'layout'=>'inventaire']);
     }
 
     /**
