@@ -56,8 +56,9 @@ class DepartementController extends Controller
     public function show($id)
     {
         $departement=Departement::find($id);
-        $materiels= Materiel::all();
-        return view('Departement',['departement'=>$departement,'materiels'=>$materiels,'layout'=>'inventaire']);
+        $materiels= Materiel::all()->where('DepartementId',$id);
+        $nbr=count($materiels);
+        return view('welcome',['departement'=>$departement,'nbr'=>$nbr,'materiels'=>$materiels,'layout'=>'inventaire']);
     }
 
     /**

@@ -17,8 +17,8 @@
                         @foreach($departements as $p)
 
                             <tr>
-                                <td> {{ $p->designation }} </td>
-                                <td> {{ $p->description }} </td>
+                                <td> {{ $p->Designation }} </td>
+                                <td> {{ $p->Description }} </td>
                                 <td>
                                     <label class="badge badge-gradient-success">10</label>
                                 </td>

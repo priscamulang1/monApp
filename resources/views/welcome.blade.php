@@ -73,14 +73,18 @@
                     <div class="row">
                         @include('departement')
                     </div>
+                @elseif($layout=='inventaire')
+                    <div class="row">
+                        @include('getinventory')
+                    </div>
                 @endif
             </div>
             <!-- content-wrapper ends -->
             <!-- partial:partials/_footer.html -->
             <footer class="footer">
                 <div class="container-fluid clearfix">
-                    <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © Prisca</span>
-                    <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin templates </a> from Bootstrapdash.com</span>
+                    <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © Prisca Tshinish</span>
+
                 </div>
             </footer>
             <!-- partial -->
