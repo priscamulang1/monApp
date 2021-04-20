@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Departement;
+use App\Models\Materiel;
 use Illuminate\Http\Request;
 
 class MaterielController extends Controller
@@ -21,9 +23,12 @@ class MaterielController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $departement=Departement::find($id);
+        $materiels= Materiel::all()->where('DepartementId',$id);
+        $nbr=count($materiels);
+        return view('welcome',['departement'=>$departement,'nbr'=>$nbr,'materiels'=>$materiels,'layout'=>'createMat']);
     }
 
     /**
@@ -34,7 +39,14 @@ class MaterielController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $materiel=new Materiel();
+        $materiel->DepartementId=$request->input('DepartementId');
+        $materiel->designation=$request->input('designation');
+        $materiel->description=$request->input('description');
+        $materiel->etat=1;
+
+        $materiel->save();
+        return redirect('/matAdd/'.$request->input('DepartementId'));
     }
 
     /**

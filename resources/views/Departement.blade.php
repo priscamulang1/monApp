@@ -9,7 +9,6 @@
                     <tr>
                         <th> Designation </th>
                         <th> Description </th>
-                        <th> Nbr Equipement </th>
                         <th> Action(s) </th>
                     </tr>
                     </thead>
@@ -19,12 +18,10 @@
                             <tr>
                                 <td> {{ $p->Designation }} </td>
                                 <td> {{ $p->Description }} </td>
-                                <td>
-                                    <label class="badge badge-gradient-success">10</label>
-                                </td>
-                                <td>
-                                    <a href="{{ url('/show/'.$p->id) }}" class="btn btn-sm btn-warning">Voir Inventaire</a>
 
+                                <td>
+                                    <a href="{{ url('/matAdd/'.$p->id) }}" class="btn btn-sm btn-info">Affecter Materiel</a>
+                                    <a href="{{ url('/show/'.$p->id) }}" class="btn btn-sm btn-warning">Voir Inventaire</a>
                                 </td>
                             </tr>
                         @endforeach

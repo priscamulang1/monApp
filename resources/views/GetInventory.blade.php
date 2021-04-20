@@ -20,9 +20,9 @@
                                     <td> {{ $p->Designation }} </td>
                                     <td> {{ $p->Description }} </td>
                                     <td>
-                                        @if($p->etat==1)
+                                        @if($p->etat=='1')
                                             <label class="badge badge-gradient-info">Bon etat</label>
-                                        @elseif($p->etat==2)
+                                        @elseif($p->etat=='2')
                                             <label class="badge badge-gradient-warning">Un peu degrade</label>
                                         @else
                                             <label class="badge badge-gradient-danger">A Declasse</label>

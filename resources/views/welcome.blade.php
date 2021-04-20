@@ -43,7 +43,7 @@
             <ul class="nav">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="pages/tables/basic-table.html">
+                    <a class="nav-link" href="{{ url('/') }}">
                         <h1 class="menu-title">Departement(s)</h1>
                         <i class="mdi mdi-table-large menu-icon"></i>
                     </a>
@@ -76,6 +76,13 @@
                 @elseif($layout=='inventaire')
                     <div class="row">
                         @include('getinventory')
+                    </div>
+                @elseif($layout=='createMat')
+                    <div class="row">
+                        @include('materiel')
+                    </div>
+                    <div class="row">
+                        @include('materielliste')
                     </div>
                 @endif
             </div>
